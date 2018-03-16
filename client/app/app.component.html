@@ -1,5 +1,13 @@
 <div class="container">
     <h1>库存系统</h1>
     <hr>
-    <tasks></tasks>
+    <nav>
+        <a class="btn btn-primary btn-lg" routerLink="/inventory" routerLinkActive="active">库存</a>
+        <a class="btn btn-primary btn-lg" routerLink="/receive" routerLinkActive="active">产品入库</a>
+        <a class="btn btn-primary btn-lg" routerLink="/checkout" routerLinkActive="active">产品出库</a>
+    </nav>
+    
+    
+    <router-outlet></router-outlet>
+    <router-outlet name="popup"></router-outlet>
 </div>

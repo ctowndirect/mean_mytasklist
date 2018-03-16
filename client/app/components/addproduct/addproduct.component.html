@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <label>SKU:
+          <input [(ngModel)]="sku" placeholder="sku"/>
+        </label>
+    </div>
+    <div>
+        <label>UPC:
+          <input [(ngModel)]="upc" placeholder="upc"/>
+        </label>
+    </div>
+    <div>
+    <label>Name:
+          <input [(ngModel)]="name" placeholder="name"/>
+        </label>
+    </div>
+    <div>
+        <label>Quantity:
+              <input [(ngModel)]="quantity" placeholder="quantity"/>
+            </label>
+        </div>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addProduct($event)">
+      保存
+    </button>
+</div>

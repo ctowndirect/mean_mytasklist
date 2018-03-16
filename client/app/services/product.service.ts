@@ -20,15 +20,15 @@ export class ProductService{
             .map(res => res.json());
     }
     
-    deleteTask(sku){
-        return this.http.delete('/api/product/'+sku)
+    deleteProduct(id){
+        return this.http.delete('/api/product/'+id)
             .map(res => res.json());
     }
     
-    updateStatus(product){
+    updateProduct(product){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.put('/api/product/'+product.sku, JSON.stringify(product), {headers: headers})
+        return this.http.put('/api/product/'+product._id, JSON.stringify(product), {headers: headers})
             .map(res => res.json());
     }
 }

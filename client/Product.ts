@@ -1,7 +1,7 @@
 export class Product{
+    _id: number;
     sku: number;
     name: string;
     upc: string;
-    fnsku: string;
     quantity: string;
 }

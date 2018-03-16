@@ -28,39 +28,42 @@ export class ProductsComponent {
             name: this.name,
             sku: this.sku,
             upc: this.upc,
-            quantity: this
+            quantity: this.quantity
         }
         
-        this.taskService.addTask(newTask)
-            .subscribe(task => {
-                this.tasks.push(task);
-                this.title = '';
+        this.productService.addProduct(newProduct)
+            .subscribe(product => {
+                this.products.push(product);
             });
     }
     
-    deleteTask(id){
-        var tasks = this.tasks;
+    deleteProduct(sku){
+        var products = this.products;
         
-        this.taskService.deleteTask(id).subscribe(data => {
+        this.productService.deleteProduct(sku).subscribe(data => {
             if(data.n == 1){
-                for(var i = 0;i < tasks.length;i++){
-                    if(tasks[i]._id == id){
-                        tasks.splice(i, 1);
+                for(var i = 0;i < products.length;i++){
+                    if(products[i].sku == sku){
+                        products.splice(i, 1);
                     }
                 }
             }
         });
     }
     
-    updateStatus(task){
-        var _task = {
-            _id:task._id,
-            title: task.title,
-            isDone: !task.isDone
+    updateStatus(product){
+        var _product = {
+            sku: product.sku,
+            name: product.name,
+            upc: product.upc,
+            quantity: product.quantity
         };
         
-        this.taskService.updateStatus(_task).subscribe(data => {
-            task.isDone = !task.isDone;
+        this.productService.updateProduct(_product).subscribe(data => {
+            product.sku = _product.sku;
+            product.name = _product.name;
+            product.upc = _product.upc;
+            product.quantity = _product.quantity;
         });
     }
 }

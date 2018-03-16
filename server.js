@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
+var products = require('./routes/products');
 
 var port = 80;
 
@@ -23,6 +24,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', index);
 app.use('/api', tasks);
+app.use('/api', products);
+
 
 app.listen(port, function(){
     console.log('Server started on port '+port);
