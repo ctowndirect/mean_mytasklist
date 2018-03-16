@@ -8,6 +8,7 @@
 <div class="product-list">
       
       <div class="row">
+                  <strong>
                         <div class="col-sm-2 col-md-2">
                               SKU
                         </div>
@@ -22,7 +23,9 @@
                         </div> 
                         <div class="col-sm-3 col-md-3">
                         </div>
+                  </strong>
       </div>
+      <br>
       <div *ngFor="let product of products">
       <div class="row">
         <div class="col-sm-2 col-md-2">
@@ -39,7 +42,7 @@
               <input [(ngModel)]="product.quantity" value=""/>  
         </div> 
         <div class="col-sm-3 col-md-3">
-            <input type="button" (click)="updateProduct(product)" value="Save" class="btn btn-danger">
+            <input type="button" (click)="updateProduct(product)" value="Save" class="btn btn-success">
             <input type="button" (click)="deleteProduct(product._id)" value="Delete" class="btn btn-danger">    
         </div>
       </div>  
