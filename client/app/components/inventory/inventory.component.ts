@@ -65,7 +65,6 @@ export class InventoryComponent {
     }
 
     checkDisable(product){
-        if (pr)
         return this.disableSaveBtn;
     }
 }
