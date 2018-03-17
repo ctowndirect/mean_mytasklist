@@ -14,8 +14,10 @@ export class InventoryComponent {
     sku: string;
     upc: string;
     quantity: number;
+    disableSaveBtn: boolean;
     
     constructor(private productService:ProductService){
+        this.disableSaveBtn = true;
         this.productService.getProducts()
             .subscribe(products => {
                 this.products = products;
@@ -38,6 +40,7 @@ export class InventoryComponent {
             product.name = _product.name;
             product.upc = _product.upc;
             product.quantity = _product.quantity;
+            this.disableSaveBtn = true;
         });
     }    
 
@@ -53,5 +56,16 @@ export class InventoryComponent {
                 }
             }
         });
+    }
+
+    checkQtyChange() {
+            // enable the button
+        this.disableSaveBtn = false;
+        
+    }
+
+    checkDisable(product){
+        if (pr)
+        return this.disableSaveBtn;
     }
 }
